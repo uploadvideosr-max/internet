@@ -65,16 +65,39 @@ h2 {
   border: none;
 }
 
-/* Responsive */
+.speed-btn {
+  margin-top: 30px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border: none;
+  color: #fff;
+  padding: 14px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,.3);
+  transition: transform .2s, box-shadow .2s;
+}
+
+.speed-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(0,0,0,.4);
+}
+
+.speedtest-box {
+  margin-top: 25px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(15, 23, 42, 0.85);
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  display: none;
+}
+
 @media (max-width: 900px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 600px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
+  .grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -102,27 +125,51 @@ h2 {
   <iframe id="map" loading="lazy"></iframe>
 </div>
 
+<div style="text-align:center;">
+  <button id="speedBtn" class="speed-btn">
+    Pokreni test brzine interneta
+  </button>
+</div>
+
+<div id="speedTestBox" class="speedtest-box">
+  <iframe id="speedFrame" width="100%" height="420" frameborder="0" scrolling="no"></iframe>
+</div>
+
 </div>
 
 <script>
+// IP INFO
 fetch('https://ipinfo.io/json?token=e59d522190b11d')
   .then(res => res.json())
   .then(data => {
-    document.getElementById('ip').textContent = data.ip || '-';
-    document.getElementById('country').textContent = data.country || '-';
-    document.getElementById('region').textContent = data.region || '-';
-    document.getElementById('city').textContent = data.city || '-';
-    document.getElementById('postal').textContent = data.postal || '-';
-    document.getElementById('org').textContent = data.org || '-';
-    document.getElementById('org_name').textContent = data.org || '-';
-    document.getElementById('asn').textContent = data.asn?.asn || '-';
-    document.getElementById('vpn').textContent = data.proxy ? 'Da' : 'Ne';
+    ip.textContent = data.ip || '-';
+    country.textContent = data.country || '-';
+    region.textContent = data.region || '-';
+    city.textContent = data.city || '-';
+    postal.textContent = data.postal || '-';
+    org.textContent = data.org || '-';
+    org_name.textContent = data.org || '-';
+    asn.textContent = data.asn?.asn || '-';
+    vpn.textContent = data.proxy ? 'Da' : 'Ne';
 
     if (data.loc) {
-      document.getElementById('map').src =
-        `https://maps.google.com/maps?q=${data.loc}&z=11&output=embed`;
+      map.src = `https://maps.google.com/maps?q=${data.loc}&z=11&output=embed`;
     }
   });
+
+// SPEED TEST
+speedBtn.addEventListener('click', function () {
+  if (speedTestBox.style.display === 'none') {
+    speedTestBox.style.display = 'block';
+    if (!speedFrame.src) {
+      speedFrame.src = 'https://www.speedtest.net/widget';
+    }
+    this.textContent = 'Sakrij test brzine';
+  } else {
+    speedTestBox.style.display = 'none';
+    this.textContent = 'Pokreni test brzine interneta';
+  }
+});
 </script>
 
 </body>
