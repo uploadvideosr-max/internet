@@ -3,185 +3,262 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Informacije o internet vezi</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+<title>Balkan Media – Informacije o internet vezi</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <style>
-body {
-  margin: 0;
-  padding: 30px;
-  font-family: 'Montserrat', sans-serif;
-  background: linear-gradient(135deg, #1f1c2c, #928dab);
-  color: #fff;
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+font-family:'Montserrat',sans-serif;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:#fff;
+text-align:center;
+}
+
+/* HEADER */
+
+header{
+padding:35px 20px 20px;
+}
+
+.main-logo{
+font-size:44px;
+font-weight:700;
+letter-spacing:2px;
+margin-bottom:10px;
+animation:colorShift 6s infinite alternate;
+}
+
+header h1{
+font-size:32px;
+margin-bottom:10px;
+animation:colorShift 4s infinite alternate;
+}
+
+header p{
+opacity:.85;
+}
+
+/* LOGO */
+
+.logo{
+width:100px;
+height:100px;
+margin-top:10px;
+animation:blink 5s linear infinite;
+}
+
+/* COLOR ANIMATION */
+
+@keyframes colorShift{
+0%{color:#25d366;text-shadow:0 0 10px #25d366}
+50%{color:#4da3ff;text-shadow:0 0 10px #4da3ff}
+100%{color:#ff4d8d;text-shadow:0 0 10px #ff4d8d}
+}
+
+/* BLINK */
+
+@keyframes blink{
+0%,50%,100%{opacity:1}
+25%,75%{opacity:.2}
 }
 
 /* CONTAINER */
-.container {
-  max-width: 1100px;
-  margin: auto;
-  text-align:center;
-}
 
-/* INTRO LOGO I NASLOV */
-.intro {
-  margin-bottom: 30px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
-
-.intro .logo {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 15px;
-  animation: blink 5s linear infinite;
-}
-
-h2 {
-  font-size: 22px;
-  margin-bottom: 25px;
+.container{
+max-width:1100px;
+margin:auto;
+padding:20px;
 }
 
 /* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:20px;
+margin-top:20px;
 }
 
-.card {
-  background: rgba(15, 23, 42, 0.85);
-  padding: 16px;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0,0,0,.25);
+/* CARD */
+
+.card{
+background:rgba(255,255,255,0.08);
+border-radius:18px;
+padding:15px;
+backdrop-filter:blur(10px);
 }
 
-.card strong {
-  display: block;
-  font-size: 12px;
-  color: #94a3b8;
-  margin-bottom: 6px;
-  letter-spacing: .5px;
+.card strong{
+display:block;
+font-size:12px;
+opacity:.7;
+margin-bottom:5px;
 }
 
-.card span {
-  font-size: 15px;
-  font-weight: 600;
+.card span{
+font-size:16px;
+font-weight:600;
 }
 
-.map-box {
-  margin-top: 25px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+/* MAP */
+
+.map-box{
+margin-top:25px;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,.4);
 }
 
-.map-box iframe {
-  width: 100%;
-  height: 260px;
-  border: none;
+.map-box iframe{
+width:100%;
+height:260px;
+border:none;
 }
 
-.speed-btn {
-  margin-top: 30px;
-  background: linear-gradient(135deg, #22c55e, #16a34a);
-  border: none;
-  color: #fff;
-  padding: 14px 28px;
-  font-size: 15px;
-  font-weight: 600;
-  border-radius: 30px;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
-  box-shadow: 0 8px 20px rgba(0,0,0,.3);
-  transition: transform .2s, box-shadow .2s;
+/* BUTTON */
+
+.speed-btn{
+margin-top:30px;
+display:inline-block;
+padding:12px 30px;
+background:#25d366;
+color:#000;
+text-decoration:none;
+border-radius:30px;
+font-weight:700;
+transition:.3s;
 }
 
-.speed-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 25px rgba(0,0,0,.4);
+.speed-btn:hover{
+box-shadow:0 0 20px rgba(37,211,102,.7);
+transform:scale(1.05);
 }
 
-@media (max-width: 900px) {
-  .grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-  .grid { grid-template-columns: 1fr; }
+/* FOOTER */
+
+footer{
+margin:40px 0 20px;
+opacity:.7;
 }
 
-/* ANIMACIJA TREPTANJA LOGA */
-@keyframes blink {
-  0%,50%,100% { opacity: 1; }
-  25%,75% { opacity: 0.2; }
-}
-
-/* MOBILE */
-@media(max-width:600px){
-  .intro .logo { width:70px; height:70px; }
-  h2 { font-size: 18px; }
-}
 </style>
 </head>
 
 <body>
 
+<header>
+
+<div class="main-logo">Balkan Media</div>
+
+<h1><i class="fas fa-network-wired"></i> Informacije o internet vezi</h1>
+
+<img src="images/edfc160d-608b-42ec-b685-d1404131fbf4.png" class="logo">
+
+<p>Pregled vaše IP adrese i internet konekcije</p>
+
+</header>
+
 <div class="container">
 
-  <div class="intro">
-    <!-- LOGO iznad naslova -->
-    <img src="images/edfc160d-608b-42ec-b685-d1404131fbf4.png" alt="Windows Logo" class="logo">
-    <h2>Informacije o vašoj internet vezi</h2>
-  </div>
-
 <div class="grid">
-  <div class="card"><strong>IP ADRESA</strong><span id="ip">—</span></div>
-  <div class="card"><strong>DRŽAVA</strong><span id="country">—</span></div>
-  <div class="card"><strong>REGIJA</strong><span id="region">—</span></div>
 
-  <div class="card"><strong>GRAD</strong><span id="city">—</span></div>
-  <div class="card"><strong>ZIP</strong><span id="postal">—</span></div>
-  <div class="card"><strong>ISP</strong><span id="org">—</span></div>
+<div class="card">
+<strong>IP ADRESA</strong>
+<span id="ip">—</span>
+</div>
 
-  <div class="card"><strong>ORGANIZACIJA</strong><span id="org_name">—</span></div>
-  <div class="card"><strong>ASN</strong><span id="asn">—</span></div>
-  <div class="card"><strong>PROXY / VPN</strong><span id="vpn">—</span></div>
+<div class="card">
+<strong>DRŽAVA</strong>
+<span id="country">—</span>
+</div>
+
+<div class="card">
+<strong>REGIJA</strong>
+<span id="region">—</span>
+</div>
+
+<div class="card">
+<strong>GRAD</strong>
+<span id="city">—</span>
+</div>
+
+<div class="card">
+<strong>ZIP</strong>
+<span id="postal">—</span>
+</div>
+
+<div class="card">
+<strong>ISP</strong>
+<span id="org">—</span>
+</div>
+
+<div class="card">
+<strong>ORGANIZACIJA</strong>
+<span id="org_name">—</span>
+</div>
+
+<div class="card">
+<strong>ASN</strong>
+<span id="asn">—</span>
+</div>
+
+<div class="card">
+<strong>PROXY / VPN</strong>
+<span id="vpn">—</span>
+</div>
+
 </div>
 
 <div class="map-box">
-  <iframe id="map" loading="lazy"></iframe>
+<iframe id="map"></iframe>
 </div>
 
-<div style="text-align:center;">
-  <a href="https://www.speedtest.net"
-     target="_blank"
-     rel="noopener noreferrer"
-     class="speed-btn">
-     Pokreni test brzine interneta
-  </a>
-</div>
+<a href="https://www.speedtest.net" target="_blank" class="speed-btn">
+<i class="fas fa-gauge-high"></i> Pokreni test brzine
+</a>
 
 </div>
+
+<footer>
+© 2026 Balkan Media
+</footer>
 
 <script>
-fetch('https://ipinfo.io/json?token=e59d522190b11d')
-  .then(res => res.json())
-  .then(data => {
-    ip.textContent = data.ip || '-';
-    country.textContent = data.country || '-';
-    region.textContent = data.region || '-';
-    city.textContent = data.city || '-';
-    postal.textContent = data.postal || '-';
-    org.textContent = data.org || '-';
-    org_name.textContent = data.org || '-';
-    asn.textContent = data.asn?.asn || '-';
-    vpn.textContent = data.proxy ? 'Da' : 'Ne';
 
-    if (data.loc) {
-      map.src = `https://maps.google.com/maps?q=${data.loc}&z=11&output=embed`;
-    }
-  });
+fetch('https://ipinfo.io/json?token=e59d522190b11d')
+
+.then(res=>res.json())
+
+.then(data=>{
+
+document.getElementById("ip").innerText=data.ip||"-";
+document.getElementById("country").innerText=data.country||"-";
+document.getElementById("region").innerText=data.region||"-";
+document.getElementById("city").innerText=data.city||"-";
+document.getElementById("postal").innerText=data.postal||"-";
+document.getElementById("org").innerText=data.org||"-";
+document.getElementById("org_name").innerText=data.org||"-";
+document.getElementById("asn").innerText=data.asn?.asn||"-";
+document.getElementById("vpn").innerText=data.proxy?"Da":"Ne";
+
+if(data.loc){
+
+document.getElementById("map").src=
+"https://maps.google.com/maps?q="+data.loc+"&z=11&output=embed";
+
+}
+
+});
+
 </script>
 
 </body>
